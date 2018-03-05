@@ -15,15 +15,16 @@ export class RegisterComponent {
   constructor(private auth: AuthenticationService, private router: Router) {}
 
   register() {
-    console.log(this.credentials);
     if (this.credentials.email === '' || this.credentials.name === '' || this.credentials.password === ''){
       this.router.navigateByUrl('/register');
+      alert('Missing required fields.');
     }
     else {
       this.auth.register(this.credentials).subscribe(() => {
         this.router.navigateByUrl('/profile');
       }, (err) => {
         console.error(err);
+        alert(err);
       });
     }
   }
