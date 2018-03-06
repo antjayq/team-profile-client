@@ -14,7 +14,7 @@ export class ProfileComponent {
       this.details = user;
     }, (err) => {
       console.error(err);
-      alert(err);
+      alert(err.message);
     });
   }
 }

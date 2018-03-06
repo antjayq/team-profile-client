@@ -24,7 +24,7 @@ export class RegisterComponent {
         this.router.navigateByUrl('/profile');
       }, (err) => {
         console.error(err);
-        alert(err);
+        alert(err.message);
       });
     }
   }

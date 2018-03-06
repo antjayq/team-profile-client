@@ -11,12 +11,14 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { AuthenticationService } from './authentication.service';
 import { AuthGuardService } from './auth-guard.service';
+import { AvatarComponent } from './avatar/avatar.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] }
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
+  { path: 'avatar', component: AvatarComponent, canActivate: [AuthGuardService]  }
 ];
 
 @NgModule({
@@ -25,16 +27,20 @@ const routes: Routes = [
     ProfileComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    AvatarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(
+      routes,
+      // { enableTracing: true } // <-- debugging purposes only
+    ),
   ],
   providers: [
-    AuthenticationService, 
+    AuthenticationService,
     AuthGuardService
   ],
   bootstrap: [AppComponent]

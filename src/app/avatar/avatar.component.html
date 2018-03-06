@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Avatars</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Motto</th>
+        <th>Last Updated</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{ avatar.name }}</td>
+        <td>{{ avatar.email }}</td>
+        <td>{{ avatar.motto }}</td>
+        <td>{{ avatar.updated_date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
