@@ -12,13 +12,21 @@ import { HomeComponent } from './home/home.component';
 import { AuthenticationService } from './authentication.service';
 import { AuthGuardService } from './auth-guard.service';
 import { AvatarComponent } from './avatar/avatar.component';
+import { AvatarDetailComponent } from './avatar-detail/avatar-detail.component';
+import { AvatarCreateComponent } from './avatar-create/avatar-create.component';
+import { AvatarEditComponent } from './avatar-edit/avatar-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
-  { path: 'avatar', component: AvatarComponent, canActivate: [AuthGuardService]  }
+
+  { path: 'avatar', component: AvatarComponent, canActivate: [AuthGuardService] },
+  { path: 'avatar-detail/:id', component: AvatarDetailComponent, canActivate: [AuthGuardService] },
+  { path: 'avatar-create', component: AvatarCreateComponent, data: { title: 'Create Avatar' }, canActivate: [AuthGuardService] },
+  { path: 'avatar-edit/:id', component: AvatarEditComponent, data: { title: 'Edit Avatar' }, canActivate: [AuthGuardService] },
+
 ];
 
 @NgModule({
@@ -28,7 +36,10 @@ const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    AvatarComponent
+    AvatarComponent,
+    AvatarDetailComponent,
+    AvatarCreateComponent,
+    AvatarEditComponent
   ],
   imports: [
     BrowserModule,

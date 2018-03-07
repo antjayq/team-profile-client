@@ -8,13 +8,13 @@ import { AuthenticationService, UserDetails } from '../authentication.service';
   styleUrls: ['./avatar.component.css']
 })
 export class AvatarComponent implements OnInit {
-  avatar: any;
+  avatars: any;
 
   constructor(private http: HttpClient, private auth: AuthenticationService) { }
 
   ngOnInit() {
-    this.http.get('/api/avatar').subscribe(data => {
-      this.avatar = data;
+    this.http.get('http://localhost:3000/avatar').subscribe(data => {
+      this.avatars = data;
     });
   }
 }

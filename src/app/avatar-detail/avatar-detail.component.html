@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>{{ avatar.name }}</h1>
+  <dl class="list">
+    <div>
+      <dt>Email</dt>
+      <dd>{{ avatar.email }}</dd>
+    </div>
+    <div>
+      <dt>Motto</dt>
+      <dd>{{ avatar.motto }}</dd>
+    </div>
+    <div>
+      <dt>Updated</dt>
+      <dd>{{ avatar.updated_date }}</dd>
+    </div>
+  </dl>
+
+  <div class="row">
+    <div class="col-md-12">
+      <a [routerLink]="['/avatar-edit', avatar._id]" class="btn btn-success">EDIT</a>
+      <button class="btn btn-danger" type="button" (click)="deleteAvatar(avatar._id)">DELETE</button>
+    </div>
+  </div>
+</div>
